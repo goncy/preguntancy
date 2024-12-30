@@ -2,7 +2,7 @@
 
 import { kv } from '@vercel/kv'
 import { revalidatePath } from 'next/cache'
-import { setWithExpiry, incr, expire } from './utils/kv'
+import { setWithExpiry } from './utils/kv'
 
 interface Question {
   question: string
@@ -11,9 +11,8 @@ interface Question {
 
 export async function submitQuestion(formData: FormData) {
   const question = formData.get('question') as string
-  const ip = formData.get('ip') as string
 
-  if (!question || !ip) {
+  if (!question) {
     return { error: 'Invalid input' }
   }
 
