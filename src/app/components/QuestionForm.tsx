@@ -21,7 +21,6 @@ export default function QuestionForm() {
   const { toast } = useToast()
 
   async function handleSubmit(formData: FormData) {
-    formData.append('ip', '127.0.0.1') // In a real app, you'd get the actual IP
     const result = await submitQuestion(formData)
     if (result.error) {
       toast({
