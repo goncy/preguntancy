@@ -1,6 +1,6 @@
 import QuestionForm from './components/QuestionForm'
 import QuestionList from './components/QuestionList'
-import { getQuestions } from './actions'
+import { getQuestions } from '@/actions'
 
 export default async function Home() {
   const questions = await getQuestions()

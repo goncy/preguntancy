@@ -1,8 +1,8 @@
 'use server'
 
 import { kv } from '@vercel/kv'
-import { setWithExpiry, get, incr, expire } from '../utils/kv'
 import { revalidatePath } from 'next/cache'
+import { setWithExpiry, incr, expire } from './utils/kv'
 
 const RATE_LIMIT = 3
 const RATE_LIMIT_WINDOW = 60 // 1 minute
