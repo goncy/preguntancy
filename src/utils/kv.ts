@@ -17,7 +17,7 @@ export async function incr(key: string): Promise<number> {
   return kv.incr(key)
 }
 
-export async function expire(key: string, expiryInSeconds: number): Promise<boolean> {
+export async function expire(key: string, expiryInSeconds: number): Promise<number> {
   return kv.expire(key, expiryInSeconds)
 }
 
