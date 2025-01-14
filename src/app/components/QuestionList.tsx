@@ -8,7 +8,7 @@ interface Question {
 
 export default function QuestionList({ questions }: { questions: Question[] }) {
   return (
-    <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
+    <div className="space-y-4 overflow-y-auto pr-2">
       {questions.map((question) => (
         <Card key={question.id} className="bg-muted border border-input hover:border-primary transition-all">
           <CardContent className="p-4">
