@@ -43,6 +43,8 @@ export async function submitQuestion(formData: FormData) {
   const questionId = `question:${Date.now()}`
   await setWithExpiry(questionId, { question, createdAt: new Date().toISOString() }, 7 * 24 * 60 * 60) // 7 days
 
+  revalidatePath('/')
+
   return { success: true }
 }
 
