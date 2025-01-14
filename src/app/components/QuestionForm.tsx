@@ -45,6 +45,7 @@ export default function QuestionForm() {
         placeholder="Ask your anonymous question..."
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
+        maxLength={1000}
         className="bg-muted border border-input text-foreground placeholder-muted-foreground rounded p-3 min-h-[120px]"
       />
       <SubmitButton />

@@ -11,7 +11,7 @@ const RATE_LIMIT_WINDOW = 60 // 1 minute
 const RATE_LIMIT_PENALTY = 600 // 10 minutes
 
 interface Question {
-  question: string
+  question: string  // max length: 1000 characters
   createdAt: string
 }
 
@@ -22,6 +22,10 @@ export async function submitQuestion(formData: FormData) {
 
   if (!question) {
     return { error: 'Invalid input' }
+  }
+
+  if (question.length > 1000) {
+    return { error: 'Question must be 1000 characters or less' }
   }
 
   const rateLimitKey = `ratelimit:${ip}`

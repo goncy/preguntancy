@@ -2,6 +2,9 @@ import QuestionForm from './components/QuestionForm'
 import QuestionList from './components/QuestionList'
 import { getQuestions } from '@/actions'
 
+// Revalidate every 6 days
+export const revalidate = 518400
+
 export default async function Home() {
   const questions = await getQuestions()
 
