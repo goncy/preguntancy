@@ -1,0 +1,32 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - db:/data
+    # Enable persistence and external access
+    command: redis-server --appendonly yes --bind 0.0.0.0
+
+  # This lets us use @vercel/kv exposing an HTTP url to Redis
+  serverless-redis-http:
+      ports:
+        - "8079:80"
+      image: hiett/serverless-redis-http:latest
+      environment:
+        SRH_MODE: env
+        SRH_TOKEN: default_token
+        SRH_CONNECTION_STRING: "redis://redis:6379"
+
+  # Redis GUI management interface
+  redis-insight:
+    image: redis/redisinsight:latest
+    restart: always
+    ports:
+      - "5540:5540"
+    volumes:
+      - db:/data
+
+# Shared persistent storage
+volumes:
+  db:
