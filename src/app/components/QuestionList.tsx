@@ -14,7 +14,7 @@ export default function QuestionList({ questions }: { questions: Question[] }) {
           <CardContent className="p-4">
             <p className="text-foreground mb-2">{question.question}</p>
             <p className="text-sm text-muted-foreground">
-              Asked on {new Date(question.createdAt).toLocaleDateString()}
+              Asked on {new Date(question.createdAt).toLocaleDateString()} at {new Date(question.createdAt).toLocaleTimeString()}
             </p>
           </CardContent>
         </Card>
